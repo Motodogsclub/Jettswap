@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { WalletConnectProvider } from '@btc-vision/walletconnect';
-import App from './App';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SwapPage from './pages/SwapPage';
+import ManualSendPage from './pages/ManualSendPage';
 import './styles.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <WalletConnectProvider theme="dark">
-      <App />
-    </WalletConnectProvider>
-  </React.StrictMode>
-);
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SwapPage />} />
+        <Route path="/manual-send" element={<ManualSendPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
